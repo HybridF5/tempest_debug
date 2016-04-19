@@ -1,0 +1,553 @@
+Aaron Lee <aaron.lee@rackspace.com>
+Aaron Rosen <aaronorosen@gmail.com>
+Aarti Kriplani <aarti.kriplani@RACKSPACE.COM>
+Abhijeet Malawade <Abhijeet.Malawade@nttdata.com>
+Abhijeet.Jain <abhijeet.jain@nectechnologies.in>
+Abhishek <abhishek.srivastav@maplelabs.com>
+Abhishek Chanda <abhishek@cloudscaling.com>
+Adalberto Medeiros <adalbas@linux.vnet.ibm.com>
+Adam Gandelman <adamg@ubuntu.com>
+Adam Young <ayoung@redhat.com>
+Aditi Raveesh <aditi.raveesh@gmail.com>
+Adolfo Duarte <adolfo.duarte@hp.com>
+Adrien Vergé <adrienverge@gmail.com>
+Ajay Yadav <ajayyadavmdu@gmail.com>
+Ala Rezmerita <ala.rezmerita@cloudwatt.com>
+Alan <kaihongd@cn.ibm.com>
+Alessandro Pilotti <apilotti@cloudbasesolutions.com>
+Alex Gaynor <alex.gaynor@gmail.com>
+Alexander Gubanov <ogubanov@mirantis.com>
+Alexander Ignatov <aignatov@mirantis.com>
+Allen Gao <wanlong.gao@easystack.cn>
+Alok Maurya <alok-kumar.maurya@hp.com>
+Alvaro Lopez Garcia <aloga@ifca.unican.es>
+Andrea Frittoli (andreaf) <andrea.frittoli@hpe.com>
+Andrea Rosa <andrea.rosa@hp.com>
+Andreas Scheuring <Andreas.Scheuring@de.ibm.com>
+Andrew Boik <dboik@cisco.com>
+Andrew Laski <andrew.laski@rackspace.com>
+Andrey Kurilin <akurilin@mirantis.com>
+Andrey Pavlov <andrey-mp@yandex.ru>
+Angus Salkeld <asalkeld@redhat.com>
+Anh Tran <anhtt@vn.fujitsu.com>
+Anita Kuno <anteaya@anteaya.info>
+Anju Tiwari <anju.tiwari@nectechnologies.in>
+Anju Tiwari <anjutiwari5@gmail.com>
+Anju5 <anju.tiwari@nectechnologies.in>
+Ann Kamyshnikova <akamyshnikova@mirantis.com>
+Antoine Eiche <lewo@abesis.fr>
+Anusha Ramineni <anusha.ramineni@nectechnologies.in>
+Arata Notsu <notsu@virtualtech.jp>
+Armando Migliaccio <amigliaccio@internap.com>
+Armando Migliaccio <armamig@gmail.com>
+Artur Svechnikov <asvechnikov@mirantis.com>
+Arx Cruz <acruz@redhat.com>
+Ashish Chandra <ashish.chandra@nttdata.com>
+Ashish Gupta <ashish-kumar.gupta@hp.com>
+Assaf Muller <amuller@redhat.com>
+Atsushi SAKAI <sakaia@jp.fujitsu.com>
+Attila Fazekas <afazekas@redhat.com>
+Babu Shanmugam <anbu@enovance.com>
+Bartosz Górski <bartosz.gorski@ntti3.com>
+Ben Nemec <bnemec@redhat.com>
+Bence Romsics <bence.romsics@ericsson.com>
+Benny Kopilov <bkopilov@bkopilov.tlv.csb>
+Benny Kopilov <bkopilov@redhat.com>
+Bhuvan Arumugam <bhuvan@apple.com>
+BinBin Cong <binbin.cong@easystack.cn>
+Bob Ball <bob.ball@citrix.com>
+Boris Pavlovic <boris@pavlovic.me>
+Brad Pokorny <Brad_Pokorny@symantec.com>
+Brandon Palm <bapalm@us.ibm.com>
+Brant Knudson <bknudson@us.ibm.com>
+Brent Eagles <beagles@redhat.com>
+Brian Haley <brian.haley@hp.com>
+Brian Haley <brian.haley@hpe.com>
+Brian Lamar <brian.lamar@rackspace.com>
+Brian Waldon <brian.waldon@rackspace.com>
+Bruce R. Montague <bruce_montague@symantec.com>
+Burt Holzman <burt@fnal.gov>
+Carl Baldwin <carl.baldwin@hp.com>
+Castulo J. Martinez <castulo.martinez@intel.com>
+Chandan Kumar <chkumar@redhat.com>
+Chang Bo Guo <guochbo@cn.ibm.com>
+Chang Ye Wang <wangchy@cn.ibm.com>
+ChangBo Guo(gcb) <eric.guo@easystack.cn>
+ChenZheng <chen.zheng@easystack.cn>
+ChenZheng <czheng@cn.ibm.com>
+Chmouel Boudjnah <chmouel@enovance.com>
+Chris Buccella <buccella@linux.vnet.ibm.com>
+Chris Buccella <chris.buccella@antallagon.com>
+Chris Dent <chdent@redhat.com>
+Chris Hoge <chris@hogepodge.com>
+Chris Hoge <chris@openstack.org>
+Chris Yeoh <cyeoh@au1.ibm.com>
+Christian Berendt <berendt@b1-systems.de>
+Christian Schwede <christian.schwede@enovance.com>
+Christian Schwede <cschwede@redhat.com>
+Christophe Sauthier <christophe.sauthier@objectif-libre.com>
+Christopher Yeoh <cyeoh@au1.ibm.com>
+Cindy Pallares <cindy.pallaresq@gmail.com>
+Clark Boylan <clark.boylan@gmail.com>
+Claudiu Belu <cbelu@cloudbasesolutions.com>
+Clint Byrum <clint@fewbar.com>
+Cory Stone <corystone@gmail.com>
+Cyril Roelandt <cyril.roelandt@enovance.com>
+Daisuke Morita <morita.daisuke@lab.ntt.co.jp>
+Dan Prince <dprince@redhat.com>
+Dan Smith <danms@us.ibm.com>
+Dane LeBlanc <leblancd@cisco.com>
+Daniel Korn <dkorn@redhat.com>
+Daniel Mellado <dmellado@redhat.com>
+Daniel P. Berrange <berrange@redhat.com>
+Danny Al-Gaaf <danny.al-gaaf@bisect.de>
+Darragh O'Reilly <dara2002-openstack@yahoo.com>
+Daryl Walleck <daryl.walleck@rackspace.com>
+Davanum Srinivas (dims) <davanum@gmail.com>
+Davanum Srinivas <davanum@gmail.com>
+Davanum Srinivas <dims@linux.vnet.ibm.com>
+David Kranz <dkranz@redhat.com>
+David Lyle <david.lyle@hp.com>
+David Lyle <david.lyle@intel.com>
+David Paterson <davpat2112@yahoo.com>
+David Ripton <dripton@redhat.com>
+David Shrewsbury <shrewsbury.dave@gmail.com>
+Dean Troyer <dtroyer@gmail.com>
+DennyZhang <denny@unitedstack.com>
+Derek Higgins <derekh@redhat.com>
+Devananda van der Veen <devananda.vdv@gmail.com>
+Dina Belova <dbelova@mirantis.com>
+Dirk Mueller <dirk@dmllr.de>
+Dmitry Tantsur <dtantsur@redhat.com>
+Dolph Mathews <dolph.mathews@gmail.com>
+Doug Hellmann <doug@doughellmann.com>
+Doug Wiegley <dougw@a10networks.com>
+Dougal Matthews <dougal@redhat.com>
+Earle F. Philhower, III <earle.philhower.iii@hgst.com>
+Edgar Magana <emagana@gmail.com>
+Eiichi Aikawa <aikawa@mxk.nes.nec.co.jp>
+Elena Ezhova <eezhova@mirantis.com>
+Eli Qiao <taget@linux.vnet.ibm.com>
+Emilien Macchi <emilien.macchi@enovance.com>
+Emilien Macchi <emilien@redhat.com>
+Emily Hugenbruch <ekhugen@us.ibm.com>
+Eoghan Glynn <eglynn@redhat.com>
+Eran Kuris <ekuris@redhat.com>
+Eric Brown <browne@vmware.com>
+Eric Fried <efried@us.ibm.com>
+Eric Harney <eharney@redhat.com>
+Eric Windisch <eric@cloudscaling.com>
+Eric Windisch <ewindisch@docker.com>
+Eugene Nikanorov <enikanorov@mirantis.com>
+Evgeny Antyshev <eantyshev@parallels.com>
+Evgeny Antyshev <eantyshev@virtuozzo.com>
+Evgeny Fedoruk <evgenyf@radware.com>
+Eyal Posener <eyal@stratoscale.com>
+Fabien Boucher <fabien.boucher@enovance.com>
+Fei Long Wang <flwang@catalyst.net.nz>
+FeihuJiang <jiangfeihu@huawei.com>
+Felix Li <liljb@cn.ibm.com>
+Feodor Tersin <ftersin@cloudscaling.com>
+Filip Hubík <fhubik@redhat.com>
+Flavio Percoco <flaper87@gmail.com>
+Florent Flament <florent.flament@cloudwatt.com>
+Frederic Lepied <frederic.lepied@enovance.com>
+Gaozexu <gaozx.fnst@cn.fujitsu.com>
+Gary Kotton <gkotton@vmware.com>
+Gavin Brebner <gavin.brebner@hp.com>
+Ghanshyam <ghanshyam.mann@nectechnologies.in>
+Giampaolo Lauria <lauria@us.ibm.com>
+Giulio Fidente <gfidente@redhat.com>
+Gleb Stepanov <gstepanov@mirantis.com>
+Gong Zhang <zhanggbj@cn.ibm.com>
+Gordon Chung <chungg@ca.ibm.com>
+Gorka Eguileor <geguileo@redhat.com>
+Grishkin <mgrishkin@gmail.com>
+Guillaume Chenuet <gchenuet@redhat.com>
+Haiwei Xu <xu-haiwei@mxw.nes.nec.co.jp>
+Haiyang Ding <dinghaiyang@huawei.com>
+Harshada Mangesh Kakad <harshada.kakad@izeltech.com>
+Harshada Mangesh Kakad <harshadak@metsi.co.uk>
+He Jie Xu <xuhj@linux.vnet.ibm.com>
+Hengqing Hu <hudayou@hotmail.com>
+Henry Gessau <gessau@cisco.com>
+Hoisaleshwara Madan V S <hoisalvs@in.ibm.com>
+Hoisaleshwara Madan V S <mahoisal@in.ibm.com>
+Hong Hui Xiao <xiaohhui@cn.ibm.com>
+Hugh Saunders <hugh@wherenow.org>
+Hui HX Xiang <xianghui@cn.ibm.com>
+Ian Wienand <iwienand@redhat.com>
+Ihar Hrachyshka <ihrachys@redhat.com>
+Ilya Shakhat <ishakhat@mirantis.com>
+Ionuț Arțăriși <iartarisi@suse.cz>
+Itzik Brown <itzikb@redhat.com>
+Ivan Kolodyazhny <e0ne@e0ne.info>
+Jakub Libosvar <libosvar@redhat.com>
+James E. Blair <jeblair@hp.com>
+James E. Blair <jeblair@openstack.org>
+Jamie Lennox <jamielennox@gmail.com>
+Jamie Lennox <jamielennox@redhat.com>
+Jane Zadorozhna <izadorozhna@mirantis.com>
+Jaroslav Henner <jhenner@redhat.com>
+Javier Pena <jpena@redhat.com>
+Jay Pipes <jaypipes@gmail.com>
+Jeff Peeler <jpeeler@redhat.com>
+Jeremy Stanley <fungi@yuggoth.org>
+Jerry Cai <caimin@cn.ibm.com>
+Jesse Keating <jlk@bluebox.net>
+Jim Rollenhagen <jim@jimrollenhagen.com>
+Jinhe Fang <hzfangjh@corp.netease.com>
+Jiri Tomasek <jtomasek@redhat.com>
+Joe Gordon <joe.gordon0@gmail.com>
+Joe H. Rahme <jhakimra@redhat.com>
+Joe H. Rahme <joe.hakim.rahme@enovance.com>
+Johan Pas <j20012@outlook.com>
+John Fischer <jffische@us.ibm.com>
+John Garbutt <john.garbutt@citrix.com>
+John Griffith <john.griffith8@gmail.com>
+John Griffith <john.griffith@solidfire.com>
+John L. Villalovos <john.l.villalovos@intel.com>
+John Warren <jswarren@us.ibm.com>
+Jon Grimm <jgrimm@linux.vnet.ibm.com>
+Jordan Pittier <jordan.pittier-ext@cloudwatt.com>
+Jordan Pittier <jordan.pittier@scality.com>
+JordanP <jordan.pittier-ext@cloudwatt.com>
+JordanP <jordan.pittier@cloudwatt.com>
+JordanP <jordan.pittier@gmail.com>
+JordanP <jordan.pittier@scality.com>
+Jorge Chai <jorge.chai@rackspace.com>
+Joris Roovers <jroovers@cisco.com>
+Joseph Lanoux <joseph.lanoux@hp.com>
+Joshua Harlow <harlowja@yahoo-inc.com>
+Joshua White <joshua.l.white@intel.com>
+Juerg Haefliger <juerg.haefliger@hp.com>
+Julie Pichon <jpichon@redhat.com>
+Julien Danjou <julien@danjou.info>
+Julien Leloup <julien.leloup@3ds.com>
+Justin Shepherd <jshepher@rackspace.com>
+Jérôme Gallard <jerome.david.gallard@gmail.com>
+K Jonathan Harker <k.jonathan.harker@hp.com>
+Kaitlin Farr <kaitlin.farr@jhuapl.edu>
+Kan <kansks@cn.ibm.com>
+Katherine Elliott <katherine.elliott@hp.com>
+Ken'ichi Ohmichi <ken-oomichi@wx.jp.nec.com>
+Kenji Yasui <k-yasui@ti.jp.nec.com>
+Kevin Benton <blak111@gmail.com>
+Kirill Shileev <kshileev@cisco.com>
+Kui Shi <skuicloud@gmail.com>
+Kurt Taylor <krtaylor@us.ibm.com>
+Kyle Mestery <mestery@mestery.com>
+Kyrylo Romanenko <kromanenko@mirantis.com>
+Lajos Katona <lajos.katona@ericsson.com>
+Lance Bragstad <lbragstad@gmail.com>
+Larisa Ustalov <lustalov@redhat.com>
+Leandro I. Costantino <leandro.i.costantino@intel.com>
+Leo Toyoda <toyoda-reo@cnt.mxw.nes.nec.co.jp>
+Leonardo Maycotte <leonardo.maycotte@rackspace.com>
+Li Ma <nick.ma@live.cn>
+Lingxian Kong <konglingxian@huawei.com>
+LingxianKong <konglingxian@huawei.com>
+Lucas Alvares Gomes <lucasagomes@gmail.com>
+Lucian Petrut <petrutlucian94@gmail.com>
+Luigi Toscano <ltoscano@redhat.com>
+Mahesh Panchaksharaiah <maheshp@thoughtworks.com>
+Maho Koshiya <koshiya.maho@po.ntts.co.jp>
+Malini Kamalambal <malini.kamalambal@rackspace.com>
+Marc Koderer <marc@koderer.com>
+Marc Solanas <marc@solanas.cat>
+Marc Solanas Tarre <msolanas@cisco.com>
+Marian Horban <mhorban@mirantis.com>
+Mark Maglana <mmaglana@gmail.com>
+Mark McClain <mark.mcclain@dreamhost.com>
+Mark McClain <mmcclain@yahoo-inc.com>
+Mark McLoughlin <markmc@redhat.com>
+Mark Vanderwiel <vanderwl@us.ibm.com>
+Mark Washenberger <mark.washenberger@markwash.net>
+Markus Zoeller <mzoeller@de.ibm.com>
+Martin Pavlasek <mpavlase@redhat.com>
+Martina Kollarova <mkollaro@redhat.com>
+Maru Newby <marun@redhat.com>
+Maru Newby <mnewby@internap.com>
+Masayuki Igawa <masayuki.igawa@gmail.com>
+Mate Lakat <mate.lakat@citrix.com>
+Mathew Odden <mrodden@us.ibm.com>
+Mathieu Gagné <mgagne@iweb.com>
+Matt Riedemann <mriedem@us.ibm.com>
+Matthew Treinish <mtreinish@kortar.org>
+Mauro S. M. Rodrigues <maurosr@linux.vnet.ibm.com>
+Max Lobur <max_lobur@outlook.com>
+Mehdi Abaakouk <mehdi.abaakouk@enovance.com>
+Mh Raies <mh.raies@nectechnologies.in>
+Michael Chapman <michchap@cisco.com>
+Michael Hudson-Doyle <michael.hudson@canonical.com>
+Michael Hudson-Doyle <michael.hudson@linaro.org>
+Michael J Fork <mjfork@us.ibm.com>
+Michael Smith <michael.smith6@hp.com>
+Michael Still <mikal@stillhq.com>
+Miguel Lavalle <miguel@mlavalle.com>
+Mikhail S Medvedev <msmedved@us.ibm.com>
+Mithil Arun <arun.mithil@gmail.com>
+Mitsuhiko Yamazaki <yamazaki-mitsuhiko@cnt.mxc.nes.nec.co.jp>
+Mitsuhiro Tanino <mitsuhiro.tanino@hds.com>
+Monty Taylor <mordred@inaugust.com>
+Morgan Fainberg <m@metacloud.com>
+Morgan Fainberg <morgan.fainberg@gmail.com>
+Nachi Ueno <nachi@ntti3.com>
+Naomichi Wakui <n-wakui@bit-isle.co.jp>
+Nayna Patel <nayna.patel@hp.com>
+Neeraj Swarnkar <nswarnkar@gmail.com>
+Neeti Dahiya <ndahiya@redhat.com>
+Nikhil Manchanda <SlickNik@gmail.com>
+Nikita Gerasimov <nikita.gerasimov@oracle.com>
+Nikola Dipanov <ndipanov@redhat.com>
+Nikolay Pliashechnikov <npliashechnikov@mirantis.com>
+OctopusZhang <zhang.yufei@99cloud.net>
+Oleg Bondarev <obondarev@mirantis.com>
+Pablo Andres Fuente <pablo.a.fuente@intel.com>
+Pavel Sedlák <psedlak@redhat.com>
+Peter Sabaini <peter@sabaini.at>
+Peter Stachowski <peter@tesora.com>
+Phil Day <philip.day@hp.com>
+Pranali Deore <pranali.deore@nttdata.com>
+PranaliDeore <pranali11.deore@nttdata.com>
+Pranav Salunke <dguitarbite@gmail.com>
+Prem Karat <prem.karat@linux.vnet.ibm.com>
+PrinikaSN <nairprinikasankaran@gmail.com>
+Puneet arora <puneet.arora@hp.com>
+Pádraig Brady <pbrady@redhat.com>
+Qin Zhao <chaochin@gmail.com>
+QingXin Meng <mengqxqx@cn.ibm.com>
+Qiu Hua Qiao <qhqiao@cn.ibm.com>
+Rabi Mishra <ramishra@redhat.com>
+Radoslaw Zarzynski <rzarzynski@mirantis.com>
+Rafael Folco <rfolco@br.ibm.com>
+Rafael Rivero <rafael@cloudscaling.com>
+Rajkumar Thiyagarajan <rajkumart@hp.com>
+Ralf Haferkamp <rhafer@suse.de>
+Ramakrishnan G <rameshg87@gmail.com>
+Rami Vaknin <rvaknin@redhat.com>
+Reedip Banerjee <reedip.banerjee@nectechnologies.in>
+Richard Winters <riwinter@cisco.com>
+Rick Harris <rconradharris@gmail.com>
+Rob Crittenden <rcritten@redhat.com>
+Robert Collins <rbtcollins@hp.com>
+Robert Mizielski <robert.mizielski@cloudwatt.com>
+Rodrigo Duarte <rduartes@redhat.com>
+Rohan Kanade <openstack@rohankanade.com>
+Rohan Kanade <rkanade@redhat.com>
+Rohan Kanade <rohan.kanade@izeltech.com>
+Rohan Rhishikesh Kanade <rohan.kanade@nttdata.com>
+Rohit Karajgi <rohit.karajgi@nttdata.com>
+Roman Prykhodchenko <me@romcheg.me>
+Rossella Sblendido <rossella@midokura.com>
+Rushi Agrawal <rushi.agr@gmail.com>
+Russell Bryant <rbryant@redhat.com>
+Russell Sim <russell.sim@gmail.com>
+Ryan Bak <ryanmbak@gmail.com>
+Ryan Hsu <rhsu@vmware.com>
+Ryan McNair <rdmcnair@us.ibm.com>
+Ryan Rossiter <rlrossit@us.ibm.com>
+Ryota Hashimoto <hashimoto.ryt@gmail.com>
+Ryota MIBU <r-mibu@cq.jp.nec.com>
+SHIGEMATSU Mitsuhiro <shigematsu.mitsuhiro@lab.ntt.co.jp>
+Sahid Orentino Ferdjaoui <sahid.ferdjaoui@cloudwatt.com>
+Salvatore <salv.orlando@gmail.com>
+Salvatore Orlando <salv.orlando@gmail.com>
+Samuel Merritt <sam@swiftstack.com>
+Santiago Baldassin <santiago.b.baldassin@intel.com>
+Santosh Kumar <Santosh.kumar4@hp.com>
+Santosh Kumar <santosh.kumar4@hp.com>
+Saranya Pandian <saranya.pandian@izeltech.com>
+Sascha Peilicke <speilicke@suse.com>
+Sean Dague <sean@dague.net>
+Sean M. Collins <sean@coreitpro.com>
+Sean M. Collins <sean_collins2@cable.comcast.com>
+Sergey Kraynev <skraynev@mirantis.com>
+Sergey Lukjanov <slukjanov@mirantis.com>
+Sergey Murashov <smurashov@mirantis.com>
+Sergey Nikitin <snikitin@mirantis.com>
+Sergey Reshetnyak <sreshetniak@mirantis.com>
+Sergey Sh <einarum@gmail.com>
+Sergey Shnaidman <sshnaidm@cisco.com>
+Sergey Vilgelm <sergey@vilgelm.info>
+Shane Wang <shane.wang@intel.com>
+Shang Yong <shangyong@letv.com>
+Shuquan Huang <huang.shuquan@99cloud.net>
+Simeon Monov <sdmonov@us.ibm.com>
+Soren Hansen <Soren.Hansen@ril.com>
+Soren Hansen <soren@linux2go.dk>
+Sreeram Yerrapragada <syerrapragada@vmware.com>
+Stephen Gran <stephen.gran@guardian.co.uk>
+Steve Baker <sbaker@redhat.com>
+Steven Dake <sdake@redhat.com>
+Steven Hardy <shardy@redhat.com>
+Sumanth Nagadavalli <sumanth.nagadavalli@rackspace.com>
+Sunil G <sunil.g@hp.com>
+Sunil Thaha <sthaha@redhat.com>
+Swami Reddy <swamireddy@gmail.com>
+Swaminathan Vasudevan <swaminathan.vasudevan@hp.com>
+Swapnil Kulkarni <coolsvap@redhat.com>
+Swapnil Kulkarni <swapnilkulkarni2608@gmail.com>
+Syed Armani <dce3062@gmail.com>
+Sylvain Afchain <sylvain.afchain@enovance.com>
+Sylvain Baubeau <sylvain.baubeau@enovance.com>
+Takashi NATSUME <natsume.takashi@lab.ntt.co.jp>
+Takeaki Matsumoto <takeaki.matsumoto@ntt.com>
+Tal Kammer <tkammer@redhat.com>
+Tatyana Leontovich <tleontov@yahoo-inc.com>
+Telles Nobrega <tellesmvn@lsd.ufcg.edu.br>
+Thalabathy Venkatesan <thalabathy.venkatesan@hp.com>
+Thomas Bechtold <tbechtold@suse.com>
+Thomas Spatzier <thomas.spatzier@de.ibm.com>
+Tiago Mello <tmello@linux.vnet.ibm.com>
+Timofey Durakov <tdurakov@mirantis.com>
+TimurNurlygayanov <tnurlygayanov@mirantis.com>
+Tin Lam <tl3438@att.com>
+Tingting Bao <baoting.tina@gmail.com>
+Tom Cocozzello <tjcocozz@us.ibm.com>
+Tom Patzig <tom.patzig@sap.com>
+Tong Liu <tongl@vmware.com>
+Tony Yang <bjyangf@cn.ibm.com>
+Toru Tanami <tanami@bit-isle.co.jp>
+Truong Le <let@us.ibm.com>
+Tushar Kalra <tushar@cloudscaling.com>
+Unmesh Gurjar <unmesh.gurjar@vertex.co.in>
+Vadim Rovachev <vrovachev@mirantis.com>
+Valeriy Ponomaryov <vponomaryov@mirantis.com>
+Vasyl Khomenko <vasiliyk@yahoo-inc.com>
+Victoria Martínez de la Cruz <victoria@vmartinezdelacruz.com>
+Viktor Tikkanen <viktor.tikkanen@nokia.com>
+Vincent Hou <sbhou@cn.ibm.com>
+Vincent Untz <vuntz@suse.com>
+Vitaly Gridnev <vgridnev@mirantis.com>
+Vladislav Kuzmin <vkuzmin@mirantis.com>
+Walter A. Boring IV <walter.boring@hp.com>
+Wangpan <hzwangpan@corp.netease.com>
+Wayne Vestal Weeks <wayneweeks@gmail.com>
+Wei Liu <wei.liu@easystack.cn>
+Will <jianwdl@cn.ibm.com>
+Xav Paice <xav@catalyst.net.nz>
+Xavier León <xavi.leon@midokura.com>
+Xavier Queralt <xqueralt@redhat.com>
+Xiao Chen <chenxiao@cn.ibm.com>
+Xiao Hanyu <xiaohanyu1988@gmail.com>
+Xicheng Chang <xichengchang@huawei.com>
+YAMAMOTO Takashi <yamamoto@midokura.com>
+Yaguang Tang <yaguang.tang@canonical.com>
+Yair Fried <yfried@redhat.com>
+Yaroslav Lobankov <ylobankov@mirantis.com>
+Yassine Lamgarchal <yassine.lamgarchal@enovance.com>
+Yong Sheng Gong <gongysh@unitedstack.com>
+Yoshihiro Kaneko <ykaneko0929@gmail.com>
+Yuiko Takada <takada-yuiko@mxn.nes.nec.co.jp>
+Yuriy Nesenenko <ynesenenko@mirantis.com>
+ZHU ZHU <zhuzhubj@cn.ibm.com>
+Zack Feldstein <zfeldstein@Zachs-MacBook-Pro.local>
+Zhao Lei <zhaolei@cn.fujitsu.com>
+Zhenguo Niu <Niu.ZGlinux@gmail.com>
+Zhenzan Zhou <zhenzan.zhou@intel.com>
+Zhi Kun Liu <zhikunli@cn.ibm.com>
+Zhi kun Liu <zhikunli@cn.ibm.com>
+ZhiQiang Fan <aji.zqfan@gmail.com>
+Zhiteng Huang <zhiteng.huang@intel.com>
+Zhongyue Luo <zhongyue.nah@intel.com>
+Zhu Zhu <zhuzhubj@cn.ibm.com>
+abhishek60014726 <abhishek.g-m@hp.com>
+afazekas <afazekas@redhat.com>
+ahmad <afaheem88@gmail.com>
+ajayaa <ajku.agr@gmail.com>
+andreaf <andrea.frittoli@gmail.com>
+anju Tiwari <anjutiwari5@gmail.com>
+anju tiwari <anju.tiwari@nectechnologies.in>
+apetrov <apetrov@mirantis.com>
+april <xiaolixu@cn.ibm.com>
+armando-migliaccio <armamig@gmail.com>
+bkopilov <bkopilov@redhat.com>
+caoyue <yue.cao@easystack.cn>
+chris fattarsi <chris.fattarsi@pistoncloud.com>
+cmyster <augol@redhat.com>
+daniel-a-nguyen <dan.nguyens.mail@gmail.com>
+donald-ngo <donald.ngo@hp.com>
+ekhugen <ekhugen@us.ibm.com>
+fujioka yuuichi <fujioka-yuuichi@zx.mxh.nes.nec.co.jp>
+fumihiko kakuma <kakuma@valinux.co.jp>
+gavin-brebner-orange <gavin.brebner@hp.com>
+gengjh <gengjh@cn.ibm.com>
+git-harry <git-harry@live.co.uk>
+gord chung <gord@live.ca>
+gordon chung <gord@live.ca>
+groghkov <groghkov@maprtech.com>
+harika-vakadi <harika_vakadi@persistent.co.in>
+hayderimran7 <imran.malik@emc.com>
+hgangwx <hgangwx@cn.ibm.com>
+hi2suresh <suresh.rao@hp.com>
+huangtianhua <huangtianhua@huawei.com>
+huangtianhua <tiantian223@163.com>
+ivan-zhu <bozhu@linux.vnet.ibm.com>
+izikpenso <izikp@radware.com>
+john-griffith <john.griffith@solidfire.com>
+jufeng <jufeng@cn.ibm.com>
+jun xie <junxiebj@cn.ibm.com>
+kavan-patil <kavan.patil@hp.com>
+lanoux <joseph.lanoux@hp.com>
+lanoux <joseph.lanoux@hpe.com>
+lei zhang <shleiz@cn.ibm.com>
+lijunjbj <lijunjbj@cn.ibm.com>
+liu-sheng <liusheng@huawei.com>
+liuchenhong <liuchenhong@unitedstack.com>
+liudong <liudong78@huawei.com>
+lkuchlan <lkuchlan@redhat.com>
+llg8212 <lilinguo@huawei.com>
+lvdongbing <dongbing.lv@kylin-cloud.com>
+m.benchchaoui@cloudbau.de <m.benchchaoui@cloudbau.de>
+md nadeem <md.nadeem@nectechnologies.in>
+meera-belur <meera.belur@hp.com>
+melanie witt <melwitt@yahoo-inc.com>
+mouad benchchaoui <m.benchchaoui@cloudbau.de>
+nfedotov <nfedotov@cisco.com>
+nithya-ganesan <nithya.ganesan@hp.com>
+piyush110786 <piyush.pathak@globallogic.com>
+piyush110786 <piyush.pathak@ril.com>
+prabhu murthy <prabhu.m4@hp.com>
+prdsilva <preethi.dsilva@hp.com>
+qianlin <lin.qian@huawei.com>
+raiesmh08 <mh.raies@nectechnologies.in>
+raiesmh08 <raiesmh08@gmail.com>
+rajalakshmi-ganesan <rajalakshmi_ganesan@persistent.co.in>
+ravikumar-venkatesan <ravikumar.venkatesan@hp.com>
+reedip <reedip.banerjee@nectechnologies.in>
+ricolin <rico.l@inwinstack.com>
+ronak <ronak.malav.shah@gmail.com>
+root <ukalifon@redhat.com>
+rossella <rossella@midokura.com>
+sapan-kona <sapan_kona@persistent.co.in>
+saradpatel <sarad.patel@hp.com>
+saurabh <sourabh.chordiya@gmail.com>
+shihanzhang <shihanzhang@huawei.com>
+sridhargaddam <sridhar.gaddam@enovance.com>
+sslypushenko <sslypushenko@mirantis.com>
+step6829 <stephen.lowrie@rackspace.com>
+sukhdev <sukhdev@aristanetworks.com>
+tanlin <lin.tan@intel.com>
+tmatsu <takeaki.matsumoto@ntt.com>
+umamohan <umamohan@hp.com>
+varun yadav <varun.yadav@hp.com>
+venakata anil <anil.venkata@enovance.com>
+venkata anil <anil.venkata@enovance.com>
+vikas <vikas.d-m@hp.com>
+vishal mahajan <mahajan.vishal.mca@gmail.com>
+vponomaryov <vponomaryov@mirantis.com>
+vrovachev <vrovachev@mirantis.com>
+wanghao <wanghao749@huawei.com>
+wanglianmin <wanglianmin@huawei.com>
+wangxiyuan <wangxiyuan@huawei.com>
+wantwatering <yun.wang2@hp.com>
+wingwj <wingwj@gmail.com>
+xiejunan <xiejunan@huawei.com>
+yan.haifeng <haifeng.yan@hp.com>
+zhang.lei <zhang.lei@99cloud.net>
+zhangfeng <zhangfeng2011@cn.fujitsu.com>
+zhangguoqing <zhang.guoqing@99cloud.net>
+zhangyanzi <zhangyanzi@huawei.com>
+zhhuabj <zhhuabj@cn.ibm.com>
+zhufl <zhu.fanglei@zte.com.cn>
