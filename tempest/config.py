@@ -224,14 +224,6 @@ compute_group = cfg.OptGroup(name='compute',
                              title='Compute Service Options')
 
 ComputeGroup = [
-    #add by hybrid begin
-    cfg.StrOpt('availability_zone',
-	       default="az31.tokyo--aws",
-               help="specify availablility zone in hybrid cloud environment. "),
-    cfg.StrOpt('uuid',
-	       default="5cc6ae76-a811-4491-a9e8-2e332e9cc365",
-               help="tenant network uuid in hybrid clout environment. "),
-    #add by hybrid end
     cfg.StrOpt('image_ref',
                help="Valid primary image reference to be used in tests. "
                     "This is a required option"),
@@ -315,6 +307,15 @@ ComputeGroup = [
                     "which require a microversion. Valid values are string "
                     "with format 'X.Y' or string 'latest'",
                     deprecated_group='compute-feature-enabled'),
+    cfg.StrOpt('default_availability_zone',
+               default='az11.shenzhen--vcloud',
+               help="Default availablility_zone for create test server"),
+    cfg.StrOpt('vcloud_availability_zone',
+               default='az11.shenzhen--vcloud',
+               help="Availablility_zone config of vcloud"),
+    cfg.StrOpt('aws_availability_zone',
+               default='az31.tokyo--aws',
+               help="Availablility_zone config of aws")
 ]
 
 compute_features_group = cfg.OptGroup(name='compute-feature-enabled',
@@ -736,6 +737,12 @@ VolumeGroup = [
     cfg.IntOpt('volume_size',
                default=1,
                help='Default size in GB for volumes created by volumes tests'),
+    cfg.StrOpt('availability_zone',
+               default='',
+               help='Available zone of volume'),
+    cfg.StrOpt('volume_type',
+               default=None,
+               help='volume type of volume'),
 ]
 
 volume_feature_group = cfg.OptGroup(name='volume-feature-enabled',

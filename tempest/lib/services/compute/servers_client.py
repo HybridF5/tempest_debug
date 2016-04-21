@@ -54,11 +54,6 @@ class ServersClient(base_compute_client.BaseComputeClient):
         if body.get('scheduler_hints'):
             hints = {'os:scheduler_hints': body.pop('scheduler_hints')}
 
-        body['availability_zone'] = CONF.compute.availability_zone
-        body['networks'] = [{"uuid":CONF.compute.uuid}]
-
-        #print 'xxx body=', body
-
         post_body = {'server': body}
 
         if hints:
