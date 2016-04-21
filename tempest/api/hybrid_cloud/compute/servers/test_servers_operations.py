@@ -36,32 +36,32 @@ CONF = config.CONF
 
 LOG = log.getLogger(__name__)
 
-#cacasing openstack doesn't set refresh flag, so can't get&&update the status of attached port from cascaded openstack, result in test fail.
-"""
-class HybridAttachInterfacesVCloudTestJSON(test_attach_interfaces.AttachInterfacesTestJSON):
-    """Test attach interfaces"""
+#cacasing openstack can't update the status of attached port, result in test fail.
+#BUG execute failed now
+#class HybridAttachInterfacesVCloudTestJSON(test_attach_interfaces.AttachInterfacesTestJSON):
+#    """Test attach interfaces"""
+#
+#    def _create_server_get_interfaces(self):
+#        server = self.create_test_server(wait_until='ACTIVE', availability_zone=CONF.compute.vcloud_availability_zone)
+#        ifs = (self.client.list_interfaces(server['id'])
+#               ['interfaceAttachments'])
+#        body = self.wait_for_interface_status(
+#            server['id'], ifs[0]['port_id'], 'ACTIVE')
+#        ifs[0]['port_state'] = body['port_state']
+#        return server, ifs
+#
 
-    def _create_server_get_interfaces(self):
-        server = self.create_test_server(wait_until='ACTIVE', availability_zone=CONF.compute.vcloud_availability_zone)
-        ifs = (self.client.list_interfaces(server['id'])
-               ['interfaceAttachments'])
-        body = self.wait_for_interface_status(
-            server['id'], ifs[0]['port_id'], 'ACTIVE')
-        ifs[0]['port_state'] = body['port_state']
-        return server, ifs
-
-class HybridAttachInterfacesAWSTestJSON(test_attach_interfaces.AttachInterfacesTestJSON):
-    """Test attach interfaces"""
-
-    def _create_server_get_interfaces(self):
-        server = self.create_test_server(wait_until='ACTIVE', availability_zone=CONF.compute.aws_availability_zone)
-        ifs = (self.client.list_interfaces(server['id'])
-               ['interfaceAttachments'])
-        body = self.wait_for_interface_status(
-            server['id'], ifs[0]['port_id'], 'ACTIVE')
-        ifs[0]['port_state'] = body['port_state']
-        return server, ifs
-"""
+#class HybridAttachInterfacesAWSTestJSON(test_attach_interfaces.AttachInterfacesTestJSON):
+#    """Test attach interfaces"""
+#
+#    def _create_server_get_interfaces(self):
+#        server = self.create_test_server(wait_until='ACTIVE', availability_zone=CONF.compute.aws_availability_zone)
+#        ifs = (self.client.list_interfaces(server['id'])
+#               ['interfaceAttachments'])
+#        body = self.wait_for_interface_status(
+#            server['id'], ifs[0]['port_id'], 'ACTIVE')
+#        ifs[0]['port_state'] = body['port_state']
+#        return server, ifs
 
 class HybridAZV2TestJSON(test_availability_zone.AZV2TestJSON):
     """Test AZ"""
