@@ -23,6 +23,8 @@ from tempest.lib.api_schema.response.compute.v2_1 import servers as schema
 from tempest.lib.common import rest_client
 from tempest.lib.services.compute import base_compute_client
 
+from tempest import config
+CONF = config.CONF
 
 class ServersClient(base_compute_client.BaseComputeClient):
 
@@ -51,6 +53,11 @@ class ServersClient(base_compute_client.BaseComputeClient):
         hints = None
         if body.get('scheduler_hints'):
             hints = {'os:scheduler_hints': body.pop('scheduler_hints')}
+
+        body['availability_zone'] = CONF.compute.availability_zone
+        body['networks'] = [{"uuid":CONF.compute.uuid}]
+
+        #print 'xxx body=', body
 
         post_body = {'server': body}
 

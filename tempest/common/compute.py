@@ -112,6 +112,7 @@ def create_test_server(clients, validatable=False, validation_resources=None,
         # Since this is boot from volume an image does not need
         # to be specified.
         image_id = ''
+
     body = clients.servers_client.create_server(name=name, imageRef=image_id,
                                                 flavorRef=flavor,
                                                 **kwargs)

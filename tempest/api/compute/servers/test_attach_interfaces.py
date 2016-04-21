@@ -175,7 +175,6 @@ class AttachInterfacesTestJSON(base.BaseV2ComputeTest):
                 raise
         else:
             ifs.append(iface)
-        
 
         iface = self._test_create_interface_by_network_id(server, ifs)
         ifs.append(iface)
