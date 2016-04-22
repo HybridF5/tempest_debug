@@ -342,12 +342,6 @@ class HybridInstanceUsageAuditLogNegativeTestJSON(InstanceUsageAuditLogNegativeT
 class HybridKeyPairsV210TestJSON(KeyPairsV210Test.KeyPairsV210TestJSON):
     """Tests KeyPairsV210TestJSON API"""
 
-class HybridLiveBlockMigrationTestJSON(LiveBlockMigrationTest.LiveBlockMigrationTestJSON):
-    """Tests LiveBlockMigrationTestJSON API"""
-
-class HybridMigrationsAdminTest(MigrationsAdminTest.MigrationsAdminTest):
-    """Tests MigrationsAdminTest API"""
-
 class HybridNetworksTest(NetworksTest.NetworksTest):
     """Tests Nova Networks API that usually requires admin privileges.
 
@@ -366,54 +360,6 @@ class HybridQuotasAdminNegativeTestJSON(QuotasAdminNegativeTest.QuotasAdminNegat
 
 class HybridSecurityGroupDefaultRulesTest(SecurityGroupDefaultRulesTest.SecurityGroupDefaultRulesTest):
     """Test SecurityGroupDefaultRulesTest API"""
-
-class HybridSecurityGroupsTestAdminJSON(SecurityGroupsTestAdmin.SecurityGroupsTestAdminJSON):
-    """Test HybridSecurityGroupsTestAdminJSON API"""
-    @testtools.skip('Do not support with neutron')
-    @test.idempotent_id('49667619-5af9-4c63-ab5d-2cfdd1c8f7f1')
-    @test.services('network')
-    def test_list_security_groups_list_all_tenants_filter(self):
-        # Admin can list security groups of all tenants
-        # List of all security groups created
-        security_group_list = []
-        # Create two security groups for a non-admin tenant
-        for i in range(2):
-            name = data_utils.rand_name('securitygroup')
-            description = data_utils.rand_name('description')
-            securitygroup = self.client.create_security_group(
-                name=name, description=description)['security_group']
-            self.addCleanup(self._delete_security_group,
-                            securitygroup['id'], admin=False)
-            security_group_list.append(securitygroup)
-
-        client_tenant_id = securitygroup['tenant_id']
-        # Create two security groups for admin tenant
-        for i in range(2):
-            name = data_utils.rand_name('securitygroup')
-            description = data_utils.rand_name('description')
-            adm_securitygroup = self.adm_client.create_security_group(
-                name=name, description=description)['security_group']
-            self.addCleanup(self._delete_security_group,
-                            adm_securitygroup['id'])
-            security_group_list.append(adm_securitygroup)
-
-        # Fetch all security groups based on 'all_tenants' search filter
-        fetched_list = self.adm_client.list_security_groups(
-            all_tenants='true')['security_groups']
-        sec_group_id_list = map(lambda sg: sg['id'], fetched_list)
-        # Now check if all created Security Groups are present in fetched list
-        for sec_group in security_group_list:
-            self.assertIn(sec_group['id'], sec_group_id_list)
-
-        # Fetch all security groups for non-admin user with 'all_tenants'
-        # search filter
-        fetched_list = (self.client.list_security_groups(all_tenants='true')
-                        ['security_groups'])
-        # Now check if all created Security Groups are present in fetched list
-        for sec_group in fetched_list:
-            self.assertEqual(sec_group['tenant_id'], client_tenant_id,
-                             "Failed to get all security groups for "
-                             "non admin user.")
 
 class HybridServersAdminTestJSON(ServersAdminTest.ServersAdminTestJSON):
     """Tests Servers API using admin privileges"""
@@ -493,64 +439,6 @@ class HybridServersAdminNegativeTestJSON(ServersAdminNegativeTest.ServersAdminNe
         cls.s1_id = server['id']
 
     @testtools.skip('Do not support host operation')
-    @test.idempotent_id('28dcec23-f807-49da-822c-56a92ea3c687')
-    @testtools.skipUnless(CONF.compute_feature_enabled.resize,
-                          'Resize not available.')
-    @test.attr(type=['negative'])
-    def test_resize_server_using_overlimit_ram(self):
-        # NOTE(mriedem): Avoid conflicts with os-quota-class-sets tests.
-        self.useFixture(fixtures.LockFixture('compute_quotas'))
-        flavor_name = data_utils.rand_name("flavor")
-        flavor_id = self._get_unused_flavor_id()
-        quota_set = (self.quotas_client.show_default_quota_set(self.tenant_id)
-                     ['quota_set'])
-        ram = int(quota_set['ram'])
-        if ram == -1:
-            raise self.skipException("default ram quota set is -1,"
-                                     " cannot test overlimit")
-        ram += 1
-        vcpus = 8
-        disk = 10
-        flavor_ref = self.flavors_client.create_flavor(name=flavor_name,
-                                                       ram=ram, vcpus=vcpus,
-                                                       disk=disk,
-                                                       id=flavor_id)['flavor']
-        self.addCleanup(self.flavors_client.delete_flavor, flavor_id)
-        self.assertRaises((lib_exc.Forbidden, lib_exc.OverLimit),
-                          self.client.resize_server,
-                          self.servers[0]['id'],
-                          flavor_ref['id'])
-
-    @testtools.skip('Do not support host operation')
-    @test.idempotent_id('7368a427-2f26-4ad9-9ba9-911a0ec2b0db')
-    @testtools.skipUnless(CONF.compute_feature_enabled.resize,
-                          'Resize not available.')
-    @test.attr(type=['negative'])
-    def test_resize_server_using_overlimit_vcpus(self):
-        # NOTE(mriedem): Avoid conflicts with os-quota-class-sets tests.
-        self.useFixture(fixtures.LockFixture('compute_quotas'))
-        flavor_name = data_utils.rand_name("flavor")
-        flavor_id = self._get_unused_flavor_id()
-        ram = 512
-        quota_set = (self.quotas_client.show_default_quota_set(self.tenant_id)
-                     ['quota_set'])
-        vcpus = int(quota_set['cores'])
-        if vcpus == -1:
-            raise self.skipException("default cores quota set is -1,"
-                                     " cannot test overlimit")
-        vcpus += 1
-        disk = 10
-        flavor_ref = self.flavors_client.create_flavor(name=flavor_name,
-                                                       ram=ram, vcpus=vcpus,
-                                                       disk=disk,
-                                                       id=flavor_id)['flavor']
-        self.addCleanup(self.flavors_client.delete_flavor, flavor_id)
-        self.assertRaises((lib_exc.Forbidden, lib_exc.OverLimit),
-                          self.client.resize_server,
-                          self.servers[0]['id'],
-                          flavor_ref['id'])
-
-    @testtools.skip('Do not support host operation')
     @test.attr(type=['negative'])
     @test.idempotent_id('e84e2234-60d2-42fa-8b30-e2d3049724ac')
     def test_get_server_diagnostics_by_non_admin(self):
@@ -568,28 +456,19 @@ class HybridServersAdminNegativeTestJSON(ServersAdminNegativeTest.ServersAdminNe
                           self.client.migrate_server,
                           str(uuid.uuid4()))
 
-    @testtools.skip('Do not support host operation')
-    @test.idempotent_id('b0b17f83-d14e-4fc4-8f31-bcc9f3cfa629')
-    @testtools.skipUnless(CONF.compute_feature_enabled.resize,
-                          'Resize not available.')
-    @testtools.skipUnless(CONF.compute_feature_enabled.suspend,
-                          'Suspend is not available.')
-    @test.attr(type=['negative'])
-    def test_migrate_server_invalid_state(self):
-        # create server.
-        server = self.create_test_server(wait_until='ACTIVE')
-        server_id = server['id']
-        # suspend the server.
-        self.client.suspend_server(server_id)
-        waiters.wait_for_server_status(self.client,
-                                       server_id, 'SUSPENDED')
-        # migrate a suspended server should fail
-        self.assertRaises(lib_exc.Conflict,
-                          self.client.migrate_server,
-                          server_id)
-
 class HybridServersOnMultiNodesTest(ServersOnMultiNodesTest.ServersOnMultiNodesTest):
     """Tests ServersOnMultiNodesTest API."""
+    @testtools.skip('Do not support host operation')
+    @test.idempotent_id('26a9d5df-6890-45f2-abc4-a659290cb130')
+    def test_create_servers_on_same_host(self):
+        server01 = self.create_test_server(wait_until='ACTIVE')['id']
+
+        hints = {'same_host': server01}
+        server02 = self.create_test_server(scheduler_hints=hints,
+                                           wait_until='ACTIVE')['id']
+        host01 = self._get_host(server01)
+        host02 = self._get_host(server02)
+            self.assertEqual(host01, host02)
 
 class HybridServicesAdminTestJSON(ServicesAdminTest.ServicesAdminTestJSON):
     """Tests Services API. List and Enable/Disable require admin privileges."""
@@ -606,7 +485,7 @@ class HybridTenantUsagesTestJSON(TenantUsagesTest.TenantUsagesTestJSON):
 
         # Create a server in the demo tenant
         cls.create_test_server(wait_until='ACTIVE',
-			       availability_zone=CONF.compute.default_availability_zone)
+                    availability_zone=CONF.compute.default_availability_zone)
 
         now = datetime.datetime.now()
         cls.start = cls._parse_strtime(now - datetime.timedelta(days=1))
