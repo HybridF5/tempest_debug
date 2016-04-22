@@ -364,7 +364,6 @@ class HybridDeleteVCloudServersTestJSON(test_delete_server.DeleteServersTestJSON
         self.client.delete_server(server['id'])
         waiters.wait_for_server_termination(self.client, server['id'])
 
-    @testtools.skip('Do not support host operation')
     @test.idempotent_id('943bd6e8-4d7a-4904-be83-7a6cc2d4213b')
     @testtools.skipUnless(CONF.compute_feature_enabled.pause,
                           'Pause is not available.')
@@ -376,7 +375,6 @@ class HybridDeleteVCloudServersTestJSON(test_delete_server.DeleteServersTestJSON
         self.client.delete_server(server['id'])
         waiters.wait_for_server_termination(self.client, server['id'])
 
-    @testtools.skip('Do not support host operation')
     @test.idempotent_id('1f82ebd3-8253-4f4e-b93f-de9b7df56d8b')
     @testtools.skipUnless(CONF.compute_feature_enabled.suspend,
                           'Suspend is not available.')
@@ -388,7 +386,6 @@ class HybridDeleteVCloudServersTestJSON(test_delete_server.DeleteServersTestJSON
         self.client.delete_server(server['id'])
         waiters.wait_for_server_termination(self.client, server['id'])
 
-    @testtools.skip('Do not support host operation')
     @test.idempotent_id('bb0cb402-09dd-4947-b6e5-5e7e1cfa61ad')
     @testtools.skipUnless(CONF.compute_feature_enabled.shelve,
                           'Shelve is not available.')
@@ -408,7 +405,6 @@ class HybridDeleteVCloudServersTestJSON(test_delete_server.DeleteServersTestJSON
         self.client.delete_server(server['id'])
         waiters.wait_for_server_termination(self.client, server['id'])
 
-    @testtools.skip('Do not support host operation')
     @test.idempotent_id('ab0c38b4-cdd8-49d3-9b92-0cb898723c01')
     @testtools.skipIf(not CONF.compute_feature_enabled.resize,
                       'Resize not available.')
