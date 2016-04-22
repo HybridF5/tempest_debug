@@ -16,6 +16,7 @@
 from tempest.api.hybrid_cloud.volume import base
 from tempest.common.utils import data_utils
 from tempest import config
+from tempest.common import waiters
 from tempest import test
 import time
 
@@ -44,8 +45,8 @@ class SnapshotsActionsV2Test(base.BaseVolumeAdminTest):
         params = {cls.name_field: vol_name}
         cls.volume = \
             cls.volumes_client.create_volume(**params)['volume']
-        cls.volumes_client.wait_for_volume_status(cls.volume['id'],
-                                                  'available')
+        waiters.wait_for_volume_status(cls.volumes_client, cls.volume['id'], 'available')
+
 
         # Create a test shared snapshot for tests
         snap_name = data_utils.rand_name(cls.__name__ + '-Snapshot')

@@ -11,6 +11,7 @@
 #    under the License.
 
 import six
+from tempest.common import waiters
 from tempest.api.hybrid_cloud.volume import base
 from tempest.common.utils import data_utils
 from tempest import config
@@ -80,8 +81,9 @@ class VolumeMultiBackendV2Test(base.BaseVolumeAdminTest):
         else:
             self.volume_id_list_without_prefix.append(
                 self.volume['id'])
-        self.admin_volume_client.wait_for_volume_status(
-            self.volume['id'], 'available')
+
+        waiters.wait_for_volume_status(self.admin_volume_client, self.volume['id'], 'available')
+
 
     @classmethod
     def resource_cleanup(cls):

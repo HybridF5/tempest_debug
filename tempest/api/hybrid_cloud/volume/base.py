@@ -16,6 +16,7 @@
 from tempest.common import compute
 from tempest.common.utils import data_utils
 from tempest import config
+from tempest.common import waiters
 from tempest import exceptions
 from tempest.lib import exceptions as lib_exc
 import tempest.test
@@ -106,7 +107,7 @@ class BaseVolumeTest(tempest.test.BaseTestCase):
         volume = cls.volumes_client.create_volume(**kwargs)['volume']
 
         cls.volumes.append(volume)
-        cls.volumes_client.wait_for_volume_status(volume['id'], 'available')
+        waiters.wait_for_volume_status(cls.volumes_client, volume['id'], 'available')
         return volume
 
     @classmethod

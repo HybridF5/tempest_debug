@@ -17,6 +17,8 @@ import testtools
 from tempest.api.hybrid_cloud.volume import base
 from tempest import config
 from tempest import test
+from tempest.common import waiters
+
 
 CONF = config.CONF
 
@@ -34,7 +36,7 @@ class VolumesV2ExtendTest(base.BaseVolumeTest):
         self.volume = self.create_volume()
         extend_size = int(self.volume['size']) + 1
         self.client.extend_volume(self.volume['id'], new_size=extend_size)
-        self.client.wait_for_volume_status(self.volume['id'], 'available')
+        waiters.wait_for_volume_status(self.client, self.volume['id'], 'available')
         volume = self.client.show_volume(self.volume['id'])['volume']
         self.assertEqual(int(volume['size']), extend_size)
 
