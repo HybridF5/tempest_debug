@@ -124,7 +124,7 @@ common_show_server = {
         'metadata': {'type': 'object'},
         'links': parameter_types.links,
         'addresses': parameter_types.addresses,
-        'hostId': {'type': 'string'},
+        'hostId': {'type': ['string', 'null']},
         'OS-DCF:diskConfig': {'type': 'string'},
         'accessIPv4': parameter_types.access_ip_v4,
         'accessIPv6': parameter_types.access_ip_v6
@@ -175,7 +175,14 @@ server_detail['properties'].update({
     'OS-EXT-SRV-ATTR:instance_name': {'type': 'string'},
     'OS-EXT-SRV-ATTR:hypervisor_hostname': {'type': ['string', 'null']},
     'os-extended-volumes:volumes_attached': {'type': 'array'},
-    'config_drive': {'type': 'string'}
+    'config_drive': {'type': 'string'},
+    
+    # NOTE(nkapotoxin) add for fusionsphere
+    'hyperThreadAffinity': {'type': 'string'},
+    'numaOpts': {'type': 'integer'},
+    'vcpuAffinity': {'type': 'array'},
+    'evsOpts': {'type': 'integer'},
+    'OS-EXT-SERVICE:service_state': {'type': ['string', 'null']}
 })
 server_detail['properties']['addresses']['patternProperties'][
     '^[a-zA-Z0-9-_.]+$']['items']['properties'].update({
