@@ -19,12 +19,14 @@ from six.moves.urllib import parse as urllib
 
 from tempest.lib.common import rest_client
 from tempest.lib import exceptions as lib_exc
+from tempest import config
+CONF = config.CONF
 
 
 class BaseVolumesClient(rest_client.RestClient):
     """Base client class to send CRUD Volume API requests"""
 
-    create_resp = 200
+    create_resp = 202
 
     def __init__(self, auth_provider, service, region,
                  default_volume_size=1, **kwargs):
@@ -46,7 +48,7 @@ class BaseVolumesClient(rest_client.RestClient):
             return params
         return urllib.urlencode(params)
 
-    def list_volumes(self, detail=False, params=None):
+    def list_volumes(self, detail=True, params=None):
         """List all the volumes created.
 
         Params can be a string (must be urlencoded) or a dictionary.
@@ -78,6 +80,10 @@ class BaseVolumesClient(rest_client.RestClient):
         """
         if 'size' not in kwargs:
             kwargs['size'] = self.default_volume_size
+        if 'availablility_zone' not in kwargs:
+            kwargs['availability_zone'] = CONF.volume.get('availability_zone')
+        if 'volume_type' not in kwargs:
+            kwargs['volume_type'] = CONF.volume.get('volume_type')
         post_body = json.dumps({'volume': kwargs})
         resp, body = self.post('volumes', post_body)
         body = json.loads(body)

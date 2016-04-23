@@ -24,7 +24,7 @@ LOG = logging.getLogger(__name__)
 class BaseSnapshotsClient(rest_client.RestClient):
     """Base Client class to send CRUD Volume API requests."""
 
-    create_resp = 200
+    create_resp = 202
 
     def list_snapshots(self, detail=False, **params):
         """List all the snapshot."""
