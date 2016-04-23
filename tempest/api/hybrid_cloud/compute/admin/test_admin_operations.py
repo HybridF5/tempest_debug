@@ -456,20 +456,6 @@ class HybridServersAdminNegativeTestJSON(ServersAdminNegativeTest.ServersAdminNe
                           self.client.migrate_server,
                           str(uuid.uuid4()))
 
-class HybridServersOnMultiNodesTest(ServersOnMultiNodesTest.ServersOnMultiNodesTest):
-    """Tests ServersOnMultiNodesTest API."""
-    @testtools.skip('Do not support host operation')
-    @test.idempotent_id('26a9d5df-6890-45f2-abc4-a659290cb130')
-    def test_create_servers_on_same_host(self):
-        server01 = self.create_test_server(wait_until='ACTIVE')['id']
-
-        hints = {'same_host': server01}
-        server02 = self.create_test_server(scheduler_hints=hints,
-                                           wait_until='ACTIVE')['id']
-        host01 = self._get_host(server01)
-        host02 = self._get_host(server02)
-            self.assertEqual(host01, host02)
-
 class HybridServicesAdminTestJSON(ServicesAdminTest.ServicesAdminTestJSON):
     """Tests Services API. List and Enable/Disable require admin privileges."""
 

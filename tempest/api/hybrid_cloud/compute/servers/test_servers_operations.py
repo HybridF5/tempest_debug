@@ -1389,11 +1389,11 @@ class HybridVCloudServersNegativeTestJSON(test_servers_negative.ServersNegativeT
                                          availability_zone=CONF.compute.vcloud_availability_zone)
         self.client.delete_server(server['id'])
         waiters.wait_for_server_termination(self.client, server['id'])
-    
+
         self.assertRaises(lib_exc.NotFound,
                           self.client.rebuild_server,
                           server['id'], self.image_ref_alt)
-    
+ 
     @test.attr(type=['negative'])
     @test.idempotent_id('581a397d-5eab-486f-9cf9-1014bbd4c984')
     def test_reboot_deleted_server(self):
@@ -1402,7 +1402,7 @@ class HybridVCloudServersNegativeTestJSON(test_servers_negative.ServersNegativeT
                                          availability_zone=CONF.compute.vcloud_availability_zone)
         self.client.delete_server(server['id'])
         waiters.wait_for_server_termination(self.client, server['id'])
-    
+
         self.assertRaises(lib_exc.NotFound, self.client.reboot_server,
                           server['id'], type='SOFT')
 
@@ -1445,11 +1445,11 @@ class HybridAwsServersNegativeTestJSON(test_servers_negative.ServersNegativeTest
                                          availability_zone=CONF.compute.aws_availability_zone)
         self.client.delete_server(server['id'])
         waiters.wait_for_server_termination(self.client, server['id'])
-    
+
         self.assertRaises(lib_exc.NotFound,
                           self.client.rebuild_server,
                           server['id'], self.image_ref_alt)
-    
+
     @test.attr(type=['negative'])
     @test.idempotent_id('581a397d-5eab-486f-9cf9-1014bbd4c984')
     def test_reboot_deleted_server(self):
@@ -1458,7 +1458,7 @@ class HybridAwsServersNegativeTestJSON(test_servers_negative.ServersNegativeTest
                                          availability_zone=CONF.compute.aws_availability_zone)
         self.client.delete_server(server['id'])
         waiters.wait_for_server_termination(self.client, server['id'])
-    
+
         self.assertRaises(lib_exc.NotFound, self.client.reboot_server,
                           server['id'], type='SOFT')
 
