@@ -828,6 +828,53 @@ class HybridVCloudServerActionsTestJSON(test_server_actions.ServerActionsTestJSO
         self.client.start_server(self.server_id)
         waiters.wait_for_server_status(self.client, self.server_id, 'ACTIVE')
 
+    @testtools.skip("HybridCloud Bug:after rebulding, vxlan tunnel can't set up") 
+    @test.idempotent_id('aaa6cdf3-55a7-461a-add9-1c8596b9a07c')
+    def test_rebuild_server(self):
+        # The server should be rebuilt using the provided image and data
+        meta = {'rebuild': 'server'}
+        new_name = data_utils.rand_name('server')
+        password = 'rebuildPassw0rd'
+        rebuilt_server = self.client.rebuild_server(
+            self.server_id,
+            self.image_ref_alt,
+            name=new_name,
+            metadata=meta,
+            adminPass=password)['server']
+
+        # If the server was rebuilt on a different image, restore it to the
+        # original image once the test ends
+        if self.image_ref_alt != self.image_ref:
+            self.addCleanup(self._rebuild_server_and_check, self.image_ref)
+
+        # Verify the properties in the initial response are correct
+        self.assertEqual(self.server_id, rebuilt_server['id'])
+        rebuilt_image_id = rebuilt_server['image']['id']
+        self.assertTrue(self.image_ref_alt.endswith(rebuilt_image_id))
+        self.assertEqual(self.flavor_ref, rebuilt_server['flavor']['id'])
+
+        # Verify the server properties after the rebuild completes
+        waiters.wait_for_server_status(self.client,
+                                       rebuilt_server['id'], 'ACTIVE')
+        server = self.client.show_server(rebuilt_server['id'])['server']
+        rebuilt_image_id = server['image']['id']
+        self.assertTrue(self.image_ref_alt.endswith(rebuilt_image_id))
+        self.assertEqual(new_name, server['name'])
+
+        if CONF.validation.run_validation:
+            # Authentication is attempted in the following order of priority:
+            # 1.The key passed in, if one was passed in.
+            # 2.Any key we can find through an SSH agent (if allowed).
+            # 3.Any "id_rsa", "id_dsa" or "id_ecdsa" key discoverable in
+            #   ~/.ssh/ (if allowed).
+            # 4.Plain username/password auth, if a password was given.
+            linux_client = remote_client.RemoteClient(
+                self.get_server_ip(rebuilt_server),
+                self.ssh_user,
+                password,
+                self.validation_resources['keypair']['private_key'])
+            linux_client.validate_authentication()
+
 class HybridAwsServerActionsTestJSON(test_server_actions.ServerActionsTestJSON):
     """Test server actions"""
 
@@ -887,6 +934,53 @@ class HybridAwsServerActionsTestJSON(test_server_actions.ServerActionsTestJSON):
         waiters.wait_for_server_status(self.client, self.server_id, 'SHUTOFF')
         self.client.start_server(self.server_id)
         waiters.wait_for_server_status(self.client, self.server_id, 'ACTIVE')
+
+    @testtools.skip("HybridCloud Bug:after rebulding, vxlan tunnel can't set up") 
+    @test.idempotent_id('aaa6cdf3-55a7-461a-add9-1c8596b9a07c')
+    def test_rebuild_server(self):
+        # The server should be rebuilt using the provided image and data
+        meta = {'rebuild': 'server'}
+        new_name = data_utils.rand_name('server')
+        password = 'rebuildPassw0rd'
+        rebuilt_server = self.client.rebuild_server(
+            self.server_id,
+            self.image_ref_alt,
+            name=new_name,
+            metadata=meta,
+            adminPass=password)['server']
+
+        # If the server was rebuilt on a different image, restore it to the
+        # original image once the test ends
+        if self.image_ref_alt != self.image_ref:
+            self.addCleanup(self._rebuild_server_and_check, self.image_ref)
+
+        # Verify the properties in the initial response are correct
+        self.assertEqual(self.server_id, rebuilt_server['id'])
+        rebuilt_image_id = rebuilt_server['image']['id']
+        self.assertTrue(self.image_ref_alt.endswith(rebuilt_image_id))
+        self.assertEqual(self.flavor_ref, rebuilt_server['flavor']['id'])
+
+        # Verify the server properties after the rebuild completes
+        waiters.wait_for_server_status(self.client,
+                                       rebuilt_server['id'], 'ACTIVE')
+        server = self.client.show_server(rebuilt_server['id'])['server']
+        rebuilt_image_id = server['image']['id']
+        self.assertTrue(self.image_ref_alt.endswith(rebuilt_image_id))
+        self.assertEqual(new_name, server['name'])
+
+        if CONF.validation.run_validation:
+            # Authentication is attempted in the following order of priority:
+            # 1.The key passed in, if one was passed in.
+            # 2.Any key we can find through an SSH agent (if allowed).
+            # 3.Any "id_rsa", "id_dsa" or "id_ecdsa" key discoverable in
+            #   ~/.ssh/ (if allowed).
+            # 4.Plain username/password auth, if a password was given.
+            linux_client = remote_client.RemoteClient(
+                self.get_server_ip(rebuilt_server),
+                self.ssh_user,
+                password,
+                self.validation_resources['keypair']['private_key'])
+            linux_client.validate_authentication()
 
 class HybridServerAddressesTestJSON(test_server_addresses.ServerAddressesTestJSON):
     """Test server address"""

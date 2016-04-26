@@ -57,6 +57,7 @@ class VolumesV2SnapshotTestJSON(base.BaseVolumeTest):
                       ('details' if with_detail else '', key)
                 self.assertEqual(params[key], snap[key], msg)
 
+    @testtools.skip('HybridCloud Bug:Can\'t create snapshot with volume in use with powering-on vm')
     @test.idempotent_id('b467b54c-07a4-446d-a1cf-651dedcc3ff1')
     @test.services('compute')
     def test_snapshot_create_with_volume_in_use(self):
