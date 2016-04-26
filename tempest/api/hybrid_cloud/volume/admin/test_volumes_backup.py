@@ -42,6 +42,7 @@ class VolumesBackupsV2Test(base.BaseVolumeAdminTest):
         self.backups_adm_client.delete_backup(backup_id)
         self.backups_adm_client.wait_for_backup_deletion(backup_id)
 
+    #Sometimes, the status of volume in cascading can't update from cascaded openstack, result in test case failed.
     @test.idempotent_id('a66eb488-8ee1-47d4-8e9f-575a095728c6')
     def test_volume_backup_create_get_detailed_list_restore_delete(self):
         # Create backup
