@@ -875,6 +875,13 @@ class HybridVCloudServerActionsTestJSON(test_server_actions.ServerActionsTestJSO
                 self.validation_resources['keypair']['private_key'])
             linux_client.validate_authentication()
 
+    @testtools.skip("HybridCloud Bug:after reboot, boot_time can't change")
+    @test.attr(type='smoke')
+    @test.idempotent_id('2cb1baf6-ac8d-4429-bf0d-ba8a0ba53e32')
+    def test_reboot_server_hard(self):
+        # The server should be power cycled
+        self._test_reboot_server('HARD')
+
 class HybridAwsServerActionsTestJSON(test_server_actions.ServerActionsTestJSON):
     """Test server actions"""
 
@@ -981,6 +988,13 @@ class HybridAwsServerActionsTestJSON(test_server_actions.ServerActionsTestJSON):
                 password,
                 self.validation_resources['keypair']['private_key'])
             linux_client.validate_authentication()
+
+    @testtools.skip("HybridCloud Bug:after reboot, boot_time can't change")
+    @test.attr(type='smoke')
+    @test.idempotent_id('2cb1baf6-ac8d-4429-bf0d-ba8a0ba53e32')
+    def test_reboot_server_hard(self):
+        # The server should be power cycled
+        self._test_reboot_server('HARD')
 
 class HybridServerAddressesTestJSON(test_server_addresses.ServerAddressesTestJSON):
     """Test server address"""
