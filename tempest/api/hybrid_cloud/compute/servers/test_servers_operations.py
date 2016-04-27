@@ -1129,6 +1129,8 @@ class HybridAwsServerPasswordTestJSON(test_server_password.ServerPasswordTestJSO
 class HybridVCloudServerPersonalityTestJSON(test_server_personality.ServerPersonalityTestJSON):
     """Test server personality"""
 
+    #two testcase use one floatingip, the unordered rpc message result in vxlan tunnel delete wrongly 
+    @testtools.skip("HybridCloud Bug:when exec this testcase individual will sucess, exec in class will failed")
     @test.idempotent_id('3cfe87fd-115b-4a02-b942-7dc36a337fdf')
     def test_create_server_with_personality(self):
         file_contents = 'This is a test file.'
@@ -1219,31 +1221,12 @@ class HybridVCloudServerPersonalityTestJSON(test_server_personality.ServerPerson
                                  linux_client.exec_command(
                                      'cat %s' % i['path']))
 
-    @testtools.skip("HybridCloud Bug:when exec this testcase individual will sucess, exec in class will failed")
-    @test.idempotent_id('3cfe87fd-115b-4a02-b942-7dc36a337fdf')
-    def test_create_server_with_personality(self):
-        file_contents = 'This is a test file.'
-        file_path = '/test.txt'
-        personality = [{'path': file_path,
-                        'contents': base64.b64encode(file_contents)}]
-        password = data_utils.rand_password()
-        created_server = self.create_test_server(personality=personality,
-                                                 adminPass=password,
-                                                 wait_until='ACTIVE',
-                                                 validatable=True)
-        server = self.client.show_server(created_server['id'])['server']
-        if CONF.validation.run_validation:
-            linux_client = remote_client.RemoteClient(
-                self.get_server_ip(server),
-                self.ssh_user, password,
-                self.validation_resources['keypair']['private_key'])
-            self.assertEqual(file_contents,
-                             linux_client.exec_command(
-                                 'sudo cat %s' % file_path))
 
 class HybridAwsServerPersonalityTestJSON(test_server_personality.ServerPersonalityTestJSON):
     """Test server personality"""
 
+    #two testcase use one floatingip, the unordered rpc message result in vxlan tunnel delete wrongly 
+    @testtools.skip("HybridCloud Bug:when exec this testcase individual will sucess, exec in class will failed")
     @test.idempotent_id('3cfe87fd-115b-4a02-b942-7dc36a337fdf')
     def test_create_server_with_personality(self):
         file_contents = 'This is a test file.'
@@ -1333,29 +1316,6 @@ class HybridAwsServerPersonalityTestJSON(test_server_personality.ServerPersonali
                 self.assertEqual(base64.b64decode(i['contents']),
                                  linux_client.exec_command(
                                      'cat %s' % i['path']))
-
-    #two testcase use one floatingip, the unordered rpc message result in vxlan tunnel delete wrongly 
-    @testtools.skip("HybridCloud Bug:when exec this testcase individual will sucess, exec in class will failed")
-    @test.idempotent_id('3cfe87fd-115b-4a02-b942-7dc36a337fdf')
-    def test_create_server_with_personality(self):
-        file_contents = 'This is a test file.'
-        file_path = '/test.txt'
-        personality = [{'path': file_path,
-                        'contents': base64.b64encode(file_contents)}]
-        password = data_utils.rand_password()
-        created_server = self.create_test_server(personality=personality,
-                                                 adminPass=password,
-                                                 wait_until='ACTIVE',
-                                                 validatable=True)
-        server = self.client.show_server(created_server['id'])['server']
-        if CONF.validation.run_validation:
-            linux_client = remote_client.RemoteClient(
-                self.get_server_ip(server),
-                self.ssh_user, password,
-                self.validation_resources['keypair']['private_key'])
-            self.assertEqual(file_contents,
-                             linux_client.exec_command(
-                                 'sudo cat %s' % file_path))
 
 class HybridVCloudServersTestJSON(test_servers.ServersTestJSON):
     """Test servers"""
