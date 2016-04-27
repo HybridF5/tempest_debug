@@ -875,6 +875,42 @@ class HybridVCloudServerActionsTestJSON(test_server_actions.ServerActionsTestJSO
                 self.validation_resources['keypair']['private_key'])
             linux_client.validate_authentication()
 
+
+    @test.idempotent_id('30449a88-5aff-4f9b-9866-6ee9b17f906d')
+    def test_rebuild_server_in_stop_state(self):
+        # The server in stop state  should be rebuilt using the provided
+        # image and remain in SHUTOFF state
+        server = self.client.show_server(self.server_id)['server']
+        old_image = server['image']['id']
+        new_image = (self.image_ref_alt
+                     if old_image == self.image_ref else self.image_ref)
+        self.client.stop_server(self.server_id)
+        waiters.wait_for_server_status(self.client, self.server_id, 'SHUTOFF')
+        rebuilt_server = (self.client.rebuild_server(self.server_id, new_image)
+                          ['server'])
+        # If the server was rebuilt on a different image, restore it to the
+        # original image once the test ends
+        if self.image_ref_alt != self.image_ref:
+            self.addCleanup(self._rebuild_server_and_check, old_image)
+
+        # Verify the properties in the initial response are correct
+        self.assertEqual(self.server_id, rebuilt_server['id'])
+        rebuilt_image_id = rebuilt_server['image']['id']
+        self.assertEqual(new_image, rebuilt_image_id)
+        self.assertEqual(self.flavor_ref, rebuilt_server['flavor']['id'])
+
+        # Verify the server properties after the rebuild completes
+        waiters.wait_for_server_status(self.client,
+                                       rebuilt_server['id'], 'SHUTOFF')
+        server = self.client.show_server(rebuilt_server['id'])['server']
+        rebuilt_image_id = server['image']['id']
+        self.assertEqual(new_image, rebuilt_image_id)
+
+        self.client.start_server(self.server_id)
+
+        #If not so, teardown report no container exception
+        waiters.wait_for_server_status(self.client, self.server_id, 'ACTIVE')
+
     @testtools.skip("HybridCloud Bug:after reboot, boot_time can't change")
     @test.attr(type='smoke')
     @test.idempotent_id('2cb1baf6-ac8d-4429-bf0d-ba8a0ba53e32')
@@ -988,6 +1024,41 @@ class HybridAwsServerActionsTestJSON(test_server_actions.ServerActionsTestJSON):
                 password,
                 self.validation_resources['keypair']['private_key'])
             linux_client.validate_authentication()
+
+    @test.idempotent_id('30449a88-5aff-4f9b-9866-6ee9b17f906d')
+    def test_rebuild_server_in_stop_state(self):
+        # The server in stop state  should be rebuilt using the provided
+        # image and remain in SHUTOFF state
+        server = self.client.show_server(self.server_id)['server']
+        old_image = server['image']['id']
+        new_image = (self.image_ref_alt
+                     if old_image == self.image_ref else self.image_ref)
+        self.client.stop_server(self.server_id)
+        waiters.wait_for_server_status(self.client, self.server_id, 'SHUTOFF')
+        rebuilt_server = (self.client.rebuild_server(self.server_id, new_image)
+                          ['server'])
+        # If the server was rebuilt on a different image, restore it to the
+        # original image once the test ends
+        if self.image_ref_alt != self.image_ref:
+            self.addCleanup(self._rebuild_server_and_check, old_image)
+
+        # Verify the properties in the initial response are correct
+        self.assertEqual(self.server_id, rebuilt_server['id'])
+        rebuilt_image_id = rebuilt_server['image']['id']
+        self.assertEqual(new_image, rebuilt_image_id)
+        self.assertEqual(self.flavor_ref, rebuilt_server['flavor']['id'])
+
+        # Verify the server properties after the rebuild completes
+        waiters.wait_for_server_status(self.client,
+                                       rebuilt_server['id'], 'SHUTOFF')
+        server = self.client.show_server(rebuilt_server['id'])['server']
+        rebuilt_image_id = server['image']['id']
+        self.assertEqual(new_image, rebuilt_image_id)
+
+        self.client.start_server(self.server_id)
+
+        #If not so, teardown report no container exception
+        waiters.wait_for_server_status(self.client, self.server_id, 'ACTIVE')
 
     @testtools.skip("HybridCloud Bug:after reboot, boot_time can't change")
     @test.attr(type='smoke')
@@ -1148,6 +1219,28 @@ class HybridVCloudServerPersonalityTestJSON(test_server_personality.ServerPerson
                                  linux_client.exec_command(
                                      'cat %s' % i['path']))
 
+    @testtools.skip("HybridCloud Bug:when exec this testcase individual will sucess, exec in class will failed")
+    @test.idempotent_id('3cfe87fd-115b-4a02-b942-7dc36a337fdf')
+    def test_create_server_with_personality(self):
+        file_contents = 'This is a test file.'
+        file_path = '/test.txt'
+        personality = [{'path': file_path,
+                        'contents': base64.b64encode(file_contents)}]
+        password = data_utils.rand_password()
+        created_server = self.create_test_server(personality=personality,
+                                                 adminPass=password,
+                                                 wait_until='ACTIVE',
+                                                 validatable=True)
+        server = self.client.show_server(created_server['id'])['server']
+        if CONF.validation.run_validation:
+            linux_client = remote_client.RemoteClient(
+                self.get_server_ip(server),
+                self.ssh_user, password,
+                self.validation_resources['keypair']['private_key'])
+            self.assertEqual(file_contents,
+                             linux_client.exec_command(
+                                 'sudo cat %s' % file_path))
+
 class HybridAwsServerPersonalityTestJSON(test_server_personality.ServerPersonalityTestJSON):
     """Test server personality"""
 
@@ -1240,6 +1333,29 @@ class HybridAwsServerPersonalityTestJSON(test_server_personality.ServerPersonali
                 self.assertEqual(base64.b64decode(i['contents']),
                                  linux_client.exec_command(
                                      'cat %s' % i['path']))
+
+    #two testcase use one floatingip, the unordered rpc message result in vxlan tunnel delete wrongly 
+    @testtools.skip("HybridCloud Bug:when exec this testcase individual will sucess, exec in class will failed")
+    @test.idempotent_id('3cfe87fd-115b-4a02-b942-7dc36a337fdf')
+    def test_create_server_with_personality(self):
+        file_contents = 'This is a test file.'
+        file_path = '/test.txt'
+        personality = [{'path': file_path,
+                        'contents': base64.b64encode(file_contents)}]
+        password = data_utils.rand_password()
+        created_server = self.create_test_server(personality=personality,
+                                                 adminPass=password,
+                                                 wait_until='ACTIVE',
+                                                 validatable=True)
+        server = self.client.show_server(created_server['id'])['server']
+        if CONF.validation.run_validation:
+            linux_client = remote_client.RemoteClient(
+                self.get_server_ip(server),
+                self.ssh_user, password,
+                self.validation_resources['keypair']['private_key'])
+            self.assertEqual(file_contents,
+                             linux_client.exec_command(
+                                 'sudo cat %s' % file_path))
 
 class HybridVCloudServersTestJSON(test_servers.ServersTestJSON):
     """Test servers"""
