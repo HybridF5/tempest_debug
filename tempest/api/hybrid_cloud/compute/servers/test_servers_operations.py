@@ -36,32 +36,30 @@ CONF = config.CONF
 
 LOG = log.getLogger(__name__)
 
-#cacasing openstack can't update the status of attached port, result in test fail.
-#BUG execute failed now
-#class HybridAttachInterfacesVCloudTestJSON(test_attach_interfaces.AttachInterfacesTestJSON):
-#    """Test attach interfaces"""
-#
-#    def _create_server_get_interfaces(self):
-#        server = self.create_test_server(wait_until='ACTIVE', availability_zone=CONF.compute.vcloud_availability_zone)
-#        ifs = (self.client.list_interfaces(server['id'])
-#               ['interfaceAttachments'])
-#        body = self.wait_for_interface_status(
-#            server['id'], ifs[0]['port_id'], 'ACTIVE')
-#        ifs[0]['port_state'] = body['port_state']
-#        return server, ifs
-#
+class HybridAttachInterfacesVCloudTestJSON(test_attach_interfaces.AttachInterfacesTestJSON):
+    """Test attach interfaces"""
 
-#class HybridAttachInterfacesAWSTestJSON(test_attach_interfaces.AttachInterfacesTestJSON):
-#    """Test attach interfaces"""
-#
-#    def _create_server_get_interfaces(self):
-#        server = self.create_test_server(wait_until='ACTIVE', availability_zone=CONF.compute.aws_availability_zone)
-#        ifs = (self.client.list_interfaces(server['id'])
-#               ['interfaceAttachments'])
-#        body = self.wait_for_interface_status(
-#            server['id'], ifs[0]['port_id'], 'ACTIVE')
-#        ifs[0]['port_state'] = body['port_state']
-#        return server, ifs
+    def _create_server_get_interfaces(self):
+        server = self.create_test_server(wait_until='ACTIVE', availability_zone=CONF.compute.vcloud_availability_zone)
+        ifs = (self.client.list_interfaces(server['id'])
+               ['interfaceAttachments'])
+        body = self.wait_for_interface_status(
+            server['id'], ifs[0]['port_id'], 'ACTIVE')
+        ifs[0]['port_state'] = body['port_state']
+        return server, ifs
+
+
+class HybridAttachInterfacesAWSTestJSON(test_attach_interfaces.AttachInterfacesTestJSON):
+    """Test attach interfaces"""
+
+    def _create_server_get_interfaces(self):
+        server = self.create_test_server(wait_until='ACTIVE', availability_zone=CONF.compute.aws_availability_zone)
+        ifs = (self.client.list_interfaces(server['id'])
+               ['interfaceAttachments'])
+        body = self.wait_for_interface_status(
+            server['id'], ifs[0]['port_id'], 'ACTIVE')
+        ifs[0]['port_state'] = body['port_state']
+        return server, ifs
 
 class HybridAZV2TestJSON(test_availability_zone.AZV2TestJSON):
     """Test AZ"""
@@ -1129,7 +1127,6 @@ class HybridAwsServerPasswordTestJSON(test_server_password.ServerPasswordTestJSO
 class HybridVCloudServerPersonalityTestJSON(test_server_personality.ServerPersonalityTestJSON):
     """Test server personality"""
 
-    #two testcase use one floatingip, the unordered rpc message result in vxlan tunnel delete wrongly 
     @testtools.skip("HybridCloud Bug:when exec this testcase individual will sucess, exec in class will failed")
     @test.idempotent_id('3cfe87fd-115b-4a02-b942-7dc36a337fdf')
     def test_create_server_with_personality(self):
@@ -1225,7 +1222,6 @@ class HybridVCloudServerPersonalityTestJSON(test_server_personality.ServerPerson
 class HybridAwsServerPersonalityTestJSON(test_server_personality.ServerPersonalityTestJSON):
     """Test server personality"""
 
-    #two testcase use one floatingip, the unordered rpc message result in vxlan tunnel delete wrongly 
     @testtools.skip("HybridCloud Bug:when exec this testcase individual will sucess, exec in class will failed")
     @test.idempotent_id('3cfe87fd-115b-4a02-b942-7dc36a337fdf')
     def test_create_server_with_personality(self):
