@@ -478,6 +478,35 @@ class HybridServersAdminTestJSON(ServersAdminTest.ServersAdminTestJSON):
         self.create_test_server(scheduler_hints=hints,
                                 wait_until='ACTIVE')
 
+    @testtools.skip('HybridCloud Bug:Do not support host operation')
+    @test.idempotent_id('682cb127-e5bb-4f53-87ce-cb9003604442')
+    def test_rebuild_server_in_error_state(self):
+        # The server in error state should be rebuilt using the provided
+        # image and changed to ACTIVE state
+
+        # resetting vm state require admin privilege
+        self.client.reset_state(self.s1_id, state='error')
+        rebuilt_server = self.non_admin_client.rebuild_server(
+            self.s1_id, self.image_ref_alt)['server']
+        self.addCleanup(waiters.wait_for_server_status, self.non_admin_client,
+                        self.s1_id, 'ACTIVE')
+        self.addCleanup(self.non_admin_client.rebuild_server, self.s1_id,
+                        self.image_ref)
+
+        # Verify the properties in the initial response are correct
+        self.assertEqual(self.s1_id, rebuilt_server['id'])
+        rebuilt_image_id = rebuilt_server['image']['id']
+        self.assertEqual(self.image_ref_alt, rebuilt_image_id)
+        self.assertEqual(self.flavor_ref, rebuilt_server['flavor']['id'])
+        waiters.wait_for_server_status(self.non_admin_client,
+                                       rebuilt_server['id'], 'ACTIVE',
+                                       raise_on_error=False)
+        # Verify the server properties after rebuilding
+        server = (self.non_admin_client.show_server(rebuilt_server['id'])
+                  ['server'])
+        rebuilt_image_id = server['image']['id']
+            self.assertEqual(self.image_ref_alt, rebuilt_image_id)
+
 class HybridServersAdminNegativeTestJSON(ServersAdminNegativeTest.ServersAdminNegativeTestJSON):
     """Tests Servers API using admin privileges"""
 
