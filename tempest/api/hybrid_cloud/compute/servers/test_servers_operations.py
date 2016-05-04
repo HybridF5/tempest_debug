@@ -916,6 +916,14 @@ class HybridVCloudServerActionsTestJSON(test_server_actions.ServerActionsTestJSO
         # The server should be power cycled
         self._test_reboot_server('HARD')
 
+    @testtools.skip("HybridCloud:cascading project not support now")
+    @test.idempotent_id('b963d4f1-94b3-4c40-9e97-7b583f46e470')
+    @testtools.skipUnless(CONF.compute_feature_enabled.snapshot,
+                          'Snapshotting not available, backup not possible.')
+    @test.services('image')
+    def test_create_backup(self):
+        pass
+
 class HybridAwsServerActionsTestJSON(test_server_actions.ServerActionsTestJSON):
     """Test server actions"""
 
@@ -1064,6 +1072,14 @@ class HybridAwsServerActionsTestJSON(test_server_actions.ServerActionsTestJSON):
     def test_reboot_server_hard(self):
         # The server should be power cycled
         self._test_reboot_server('HARD')
+
+    @testtools.skip("HybridCloud:cascading project not support now")
+    @test.idempotent_id('b963d4f1-94b3-4c40-9e97-7b583f46e470')
+    @testtools.skipUnless(CONF.compute_feature_enabled.snapshot,
+                          'Snapshotting not available, backup not possible.')
+    @test.services('image')
+    def test_create_backup(self):
+        pass
 
 class HybridServerAddressesTestJSON(test_server_addresses.ServerAddressesTestJSON):
     """Test server address"""

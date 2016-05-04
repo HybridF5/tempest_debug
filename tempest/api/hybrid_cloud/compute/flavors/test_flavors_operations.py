@@ -18,10 +18,12 @@ LOG = log.getLogger(__name__)
 class HybridFlavorsV2TestJSON(FlavorsV2Test.FlavorsV2TestJSON):
     """Test flavors"""
 
+@testtools.skip("testscenarios are not active.")
 @test.SimpleNegativeAutoTest
 class HybridFlavorsListWithDetailsNegativeTestJSON(FlavorsListWithDetailsNegativeTest.FlavorsListWithDetailsNegativeTestJSON):
     """Test FlavorsListWithDetails"""
 
+@testtools.skip("testscenarios are not active.")
 @test.SimpleNegativeAutoTest
 class HybridFlavorDetailsNegativeTestJSON(FlavorDetailsNegativeTest.FlavorDetailsNegativeTestJSON):
     """Test FlavorsListWithDetails"""

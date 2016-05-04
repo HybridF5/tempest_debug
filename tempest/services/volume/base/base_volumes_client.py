@@ -80,7 +80,7 @@ class BaseVolumesClient(rest_client.RestClient):
         """
         if 'size' not in kwargs:
             kwargs['size'] = self.default_volume_size
-        if 'availablility_zone' not in kwargs:
+        if 'availability_zone' not in kwargs:
             kwargs['availability_zone'] = CONF.volume.get('availability_zone')
         if 'volume_type' not in kwargs:
             kwargs['volume_type'] = CONF.volume.get('volume_type')
