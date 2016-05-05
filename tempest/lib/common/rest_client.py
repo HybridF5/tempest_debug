@@ -820,7 +820,7 @@ class RestClient(object):
         # code if it exists is something that we expect. This is explicitly
         # declared in the V3 API and so we should be able to export this in
         # the response schema. For now we'll ignore it.
-	return
+        return
         if resp.status in HTTP_SUCCESS + HTTP_REDIRECTION:
             cls.expected_success(schema['status_code'], resp.status)
 

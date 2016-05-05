@@ -505,7 +505,7 @@ class HybridServersAdminTestJSON(ServersAdminTest.ServersAdminTestJSON):
         server = (self.non_admin_client.show_server(rebuilt_server['id'])
                   ['server'])
         rebuilt_image_id = server['image']['id']
-            self.assertEqual(self.image_ref_alt, rebuilt_image_id)
+        self.assertEqual(self.image_ref_alt, rebuilt_image_id)
 
 class HybridServersAdminNegativeTestJSON(ServersAdminNegativeTest.ServersAdminNegativeTestJSON):
     """Tests Servers API using admin privileges"""
