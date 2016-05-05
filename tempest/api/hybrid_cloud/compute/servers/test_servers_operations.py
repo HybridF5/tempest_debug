@@ -538,7 +538,6 @@ class HybridDeleteAwsServersTestJSON(test_delete_server.DeleteServersTestJSON):
         self.client.delete_server(server['id'])
         waiters.wait_for_server_termination(self.client, server['id'])
 
-    @testtools.skip('Volume test support this operation')
     @test.idempotent_id('d0f3f0d6-d9b6-4a32-8da4-23015dcab23c')
     @test.services('volume')
     def test_delete_server_while_in_attached_volume(self):

@@ -25,7 +25,7 @@ CONF = config.CONF
 LOG = logging.getLogger(__name__)
 
 
-class ExtensionsV2TestJSON(base.BaseVolumeTest):
+class HybridExtensionsV2TestJSON(base.BaseVolumeTest):
 
     @test.idempotent_id('94607eb0-43a5-47ca-82aa-736b41bd2e2c')
     def test_list_extensions(self):
@@ -45,5 +45,5 @@ class ExtensionsV2TestJSON(base.BaseVolumeTest):
             raise self.skipException('There are not any extensions configured')
 
 
-class ExtensionsV1TestJSON(ExtensionsV2TestJSON):
+class HybridExtensionsV1TestJSON(HybridExtensionsV2TestJSON):
     _api_version = 1
