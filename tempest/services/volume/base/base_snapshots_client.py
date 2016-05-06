@@ -53,6 +53,8 @@ class BaseSnapshotsClient(rest_client.RestClient):
         Available params: see http://developer.openstack.org/
                               api-ref-blockstorage-v2.html#createSnapshot
         """
+        # aws SnapshotCreationPerVolumeRateExceeded
+        time.sleep(15)
         post_body = json.dumps({'snapshot': kwargs})
         resp, body = self.post('snapshots', post_body)
         body = json.loads(body)
