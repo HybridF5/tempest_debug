@@ -228,7 +228,7 @@ class HybridCreateVCloudServersTestJSON(test_create_server.ServersTestJSON):
                 self.validation_resources['keypair']['private_key'])
             self.assertEqual(rand_data,
                              linux_client.exec_command(
-                                 'curl http://169.254.169.254/user-data'))
+                                 'curl http://169.254.169.254/latest/user-data'))
 
     @test.idempotent_id('57318d1e-67ec-4889-b42d-e7874366ce4c')
     def test_create_server_with_network_port(self):
