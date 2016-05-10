@@ -216,7 +216,7 @@ class HybridCreateVCloudServersTestJSON(test_create_server.ServersTestJSON):
                                          name=name,
                                          adminPass=password,
                                          user_data=base64.b64encode(rand_data),
-                                         #validatable=bool(CONF.validation.run_validation),
+                                         validatable=CONF.validation.run_validation,
                                          availability_zone=CONF.compute.vcloud_availability_zone)
 
         server = self.client.show_server(created_server['id'])['server']

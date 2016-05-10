@@ -10,6 +10,7 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+import testtools
 from tempest.api.hybrid_cloud.volume import base
 from tempest.common.utils import data_utils
 from tempest import config
