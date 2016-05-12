@@ -263,6 +263,19 @@ class HybridCreateVCloudServersTestJSON(test_create_server.ServersTestJSON):
         addr = addresses[net['network']['name']][0]['addr']
         self.assertEqual(addr, ip)
 
+    @testtools.skip('HybridCloud Bug:Do not support host operation')
+    @test.idempotent_id('ac1ad47f-984b-4441-9274-c9079b7a0666')
+    @testtools.skipUnless(CONF.validation.run_validation,
+                          'Instance validation tests are disabled.')
+    def test_host_name_is_same_as_server_name(self):
+        # Verify the instance host name is the same as the server name
+        linux_client = remote_client.RemoteClient(
+            self.get_server_ip(self.server),
+            self.ssh_user,
+            self.password,
+            self.validation_resources['keypair']['private_key'])
+        self.assertTrue(linux_client.hostname_equals_servername(self.name))
+
 class HybridCreateAwsServersTestJSON(test_create_server.ServersTestJSON):
     """Test create servers"""
 
@@ -461,6 +474,19 @@ class HybridCreateAwsServersTestJSON(test_create_server.ServersTestJSON):
                      ['addresses'])
         addr = addresses[net['network']['name']][0]['addr']
         self.assertEqual(addr, ip)
+
+    @testtools.skip('HybridCloud Bug:Do not support host operation')
+    @test.idempotent_id('ac1ad47f-984b-4441-9274-c9079b7a0666')
+    @testtools.skipUnless(CONF.validation.run_validation,
+                          'Instance validation tests are disabled.')
+    def test_host_name_is_same_as_server_name(self):
+        # Verify the instance host name is the same as the server name
+        linux_client = remote_client.RemoteClient(
+            self.get_server_ip(self.server),
+            self.ssh_user,
+            self.password,
+            self.validation_resources['keypair']['private_key'])
+        self.assertTrue(linux_client.hostname_equals_servername(self.name))
 
 class HybridDeleteVCloudServersTestJSON(test_delete_server.DeleteServersTestJSON):
     """Test delete server"""
@@ -1000,6 +1026,7 @@ class HybridVCloudServerActionsTestJSON(test_server_actions.ServerActionsTestJSO
             linux_client.validate_authentication()
 
 
+    @testtools.skip("HybridCloud Bug:does not support rebuild")
     @test.idempotent_id('30449a88-5aff-4f9b-9866-6ee9b17f906d')
     def test_rebuild_server_in_stop_state(self):
         # The server in stop state  should be rebuilt using the provided
@@ -1157,6 +1184,7 @@ class HybridAwsServerActionsTestJSON(test_server_actions.ServerActionsTestJSON):
                 self.validation_resources['keypair']['private_key'])
             linux_client.validate_authentication()
 
+    @testtools.skip("HybridCloud Bug:does not support rebuild")
     @test.idempotent_id('30449a88-5aff-4f9b-9866-6ee9b17f906d')
     def test_rebuild_server_in_stop_state(self):
         # The server in stop state  should be rebuilt using the provided
