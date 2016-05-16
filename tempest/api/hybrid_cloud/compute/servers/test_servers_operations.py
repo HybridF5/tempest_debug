@@ -210,7 +210,7 @@ class HybridCreateVCloudServersTestJSON(test_create_server.ServersTestJSON):
     @test.idempotent_id('c25a6b9c-764d-4254-b782-e56074987daf')
     def test_create_server_with_user_data(self):
         name = data_utils.rand_name('server_with_user_data')
-        rand_data = data_utils.arbitrary_string(size=32,base_text ='abcdefghijklmnopqrstuvwxyz')
+        rand_data = data_utils.arbitrary_string(size=32, base_text ='abcdefghijklmnopqrstuvwxyz')
         password = self.password
         created_server = self.create_test_server(wait_until='ACTIVE',
                                          name=name,
@@ -422,13 +422,13 @@ class HybridCreateAwsServersTestJSON(test_create_server.ServersTestJSON):
     @test.idempotent_id('1c4b805d-3147-437b-b28c-a0ef32279bb8')
     def test_create_server_with_user_data(self):
         name = data_utils.rand_name('server_with_user_data')
-        rand_data = data_utils.random_bytes()
+        rand_data = data_utils.arbitrary_string(size=32, base_text ='abcdefghijklmnopqrstuvwxyz')
         password = self.password
         created_server = self.create_test_server(wait_until='ACTIVE',
                                          name=name,
                                          adminPass=password,
                                          user_data=base64.b64encode(rand_data),
-                                         #validatable=bool(CONF.validation.run_validation),
+                                         validatable=CONF.validation.run_validation,
                                          availability_zone=CONF.compute.aws_availability_zone)
 
         server = self.client.show_server(created_server['id'])['server']
