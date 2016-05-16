@@ -210,7 +210,7 @@ class HybridCreateVCloudServersTestJSON(test_create_server.ServersTestJSON):
     @test.idempotent_id('c25a6b9c-764d-4254-b782-e56074987daf')
     def test_create_server_with_user_data(self):
         name = data_utils.rand_name('server_with_user_data')
-        rand_data = data_utils.random_bytes()
+        rand_data = data_utils.arbitrary_string(size=32,base_text ='abcdefghijklmnopqrstuvwxyz')
         password = self.password
         created_server = self.create_test_server(wait_until='ACTIVE',
                                          name=name,
